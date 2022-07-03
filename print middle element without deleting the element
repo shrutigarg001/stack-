@@ -1,0 +1,38 @@
+#include <iostream>
+#include<stack> 
+using namespace std; 
+
+void midElement(stack<int> &s, int &size) {
+   //Base case 
+   if(s.size() == ((size/2) + 1)) {
+      cout << s.top(); 
+      return; 
+   } 
+
+   int top=s.top(); 
+   s.pop(); 
+   midElement(s, size); 
+   s.push(top); 
+} 
+
+int main() {
+    stack<int> a; 
+
+    int n; 
+    cin >> n; 
+
+    while(n--) {
+      int e; 
+      cin >> e; 
+      a.push(e); 
+    } 
+ int size=a.size(); 
+  midElement(a, size); 
+
+    while(!a.empty()) 
+      {
+        cout << a.top() << " "; 
+        a.pop(); 
+      }
+    return 0;
+} 
